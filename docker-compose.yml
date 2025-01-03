@@ -1,0 +1,13 @@
+version: '3'
+networks:
+  nginxproxymanager_frontend:
+    external:
+      name: nginxproxymanager_frontend
+services:
+  vue-app:
+    build: .
+    networks:
+      - nginxproxymanager_frontend
+    volumes:
+      - .:/app
+    command: ["npm", "run", "serve"]
